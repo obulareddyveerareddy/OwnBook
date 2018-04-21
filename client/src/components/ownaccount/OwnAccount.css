@@ -1,0 +1,308 @@
+.bg-luminous-vivid-pink {
+    background-color: #ee184c !important;
+}
+
+.mt-1{
+    margin-top:1rem;
+}
+
+.sidenav{
+    padding: 0!important;
+    height: calc(100% - 60px)!important;
+    margin-top: 60px;
+    width: 220px;
+    z-index: 1;
+}
+
+.header-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 60px;
+    float: left;
+    color: #fff;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.header-title, nav {
+    position: relative;
+}
+
+.logo-text{
+    font-size: 16px;
+}
+
+.own-account-header{
+    border-bottom: 2px solid #f5f7f8;
+    background-color: #fff;
+}
+
+.bg-white{
+    background-color: #fff;
+    border: 1px solid #f5f7f8;
+}
+
+.calendar-month-place{
+    padding:0px;
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.items-row-group{
+    display: flex;
+    justify-content: space-around;
+}
+
+.BrandBox{
+  position: relative;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-bottom: 2px solid #f5f7f8;
+  background-color: #fff;
+}
+
+#wrapper{
+    margin-top:4rem;
+}
+
+@media screen and (max-width: 40em){
+    #wrapper{
+        margin-top:8rem !important;
+    }
+    .calendar-month-place {
+        flex-direction: column;
+    }
+
+    .calendar-month-place div{
+        margin-left:0px !important;
+    }
+
+    .calendar-month-place ul{
+        margin-left:0px !important;
+    }
+
+    .sidenav{
+        z-index: 999 !important;
+    }
+}
+@media screen and (max-width: 1000px){
+    #wrapper{
+        margin-top:8rem !important;
+    }
+    .calendar-month-place {
+        flex-direction: column;
+    }
+
+    .calendar-month-place div{
+        margin-left:0px !important;
+    }
+
+    .calendar-month-place ul{
+        margin-left:0px !important;
+    }
+
+    .navbar{
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 60em){
+    #wrapper{
+        margin-top:8rem !important;
+    }
+    .calendar-month-place {
+        flex-direction: column;
+    }
+
+    .calendar-month-place div{
+        margin-left:0px !important;
+    }
+
+    .calendar-month-place ul{
+        margin-left:0px !important;
+    }
+
+    .sidenav{
+        z-index: 999 !important;
+    }
+}
+
+#sidebar {
+    overflow: auto;
+    z-index: 3;
+    min-width: 200px;
+}
+#sidebar .list-group {
+    min-width: 100%;
+    background-color: #fff !important;
+    min-height: 100vh;
+}
+#sidebar i {
+    margin-right: 6px;
+}
+
+#sidebar .list-group-item {
+    border-radius: 0;
+    background-color: #fff !important;
+    color: #ccc;
+    border-left: 0;
+    border-right: 0;
+    border-color: #fff !important;
+    white-space: nowrap;
+}
+
+/* highlight active menu */
+#sidebar .list-group-item:not(.collapsed) {
+    background-color: #222;
+}
+
+/* closed state */
+#sidebar .list-group .list-group-item[aria-expanded="false"]::after {
+  content: " \f0d7";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 5px;
+}
+
+/* open state */
+#sidebar .list-group .list-group-item[aria-expanded="true"] {
+  background-color: #222;
+}
+#sidebar .list-group .list-group-item[aria-expanded="true"]::after {
+  content: " \f0da";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 5px;
+}
+
+/* level 1*/
+#sidebar .list-group .collapse .list-group-item,
+#sidebar .list-group .collapsing .list-group-item  {
+  padding-left: 20px;
+}
+
+/* level 2*/
+#sidebar .list-group .collapse > .collapse .list-group-item,
+#sidebar .list-group .collapse > .collapsing .list-group-item {
+  padding-left: 30px;
+}
+
+/* level 3*/
+#sidebar .list-group .collapse > .collapse > .collapse .list-group-item {
+  padding-left: 40px;
+}
+
+@media (max-width:768px) {
+    #sidebar {
+        min-width: 35px;
+        max-width: 40px;
+        overflow-y: auto;
+        overflow-x: visible;
+        transition: all 0.25s ease;
+        transform: translateX(-45px);
+        position: relative;
+    }
+    
+    #sidebar.show {
+        transform: translateX(0);
+    }
+
+    #sidebar::-webkit-scrollbar{ width: 0px; }
+    
+    #sidebar, #sidebar .list-group {
+        min-width: 35px;
+        overflow: visible;
+    }
+    /* overlay sub levels on small screens */
+    #sidebar .list-group .collapse.show, #sidebar .list-group .collapsing {
+        position: relative;
+        z-index: 1;
+        width: 190px;
+        top: 0;
+    }
+    #sidebar .list-group > .list-group-item {
+        text-align: center;
+        padding: .75rem .5rem;
+    }
+    /* hide caret icons of top level when collapsed */
+    #sidebar .list-group > .list-group-item[aria-expanded="true"]::after,
+    #sidebar .list-group > .list-group-item[aria-expanded="false"]::after {
+        display:none;
+    }
+}
+
+.collapse.show {
+  visibility: visible;
+}
+.collapsing {
+  visibility: visible;
+  height: 0;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.collapsing.width {
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: 100%;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.bg-transparent{
+    background-color: transparent;
+}
+
+/* Style the list */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: transparent;
+    color: black;
+}
+
+ul.breadcrumb i{
+    font-size: 12px;
+    padding-top: 10px;
+    margin-right: 2px;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 16px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
