@@ -11,9 +11,12 @@ class OwnAccountRouter extends React.Component{
   constructor(props){
     super(props);
   }
+  
+  componentDidMount(){
+    this.props.getAuthUserProfile();
+  }
 
   render(){
-    console.log('this is OwnAccountRouter .... '+this.props);
     return(
       <div className="wrapper">
         <header>
@@ -22,7 +25,7 @@ class OwnAccountRouter extends React.Component{
         <div className="row">
           <div className="col s12 m2" style={{padding:'0px'}}>
             <aside>
-              <OwnAccountSidebar />
+              <OwnAccountSidebar params={this.props.authUserProfile} />
             </aside>
           </div>
           <div className="col s12 m10">

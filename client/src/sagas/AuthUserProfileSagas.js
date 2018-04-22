@@ -3,7 +3,6 @@ import * as authUserProfileApis from './../apis/AuthUserProfileApis';
 
 export function* authUserProfileSaga(){
     try{
-        console.log(':::::::::::> authUserProfileSaga() triggered <::::::::::::');
         yield take('GET_AUTH_USER_PROFILE');
         let resp = yield call(authUserProfileApis.getApiAuthGoogleProfile);
         let userProfile = yield apply(resp, resp.json);

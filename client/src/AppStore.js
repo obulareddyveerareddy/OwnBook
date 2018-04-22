@@ -10,7 +10,6 @@ export default function configureStore(initialState){
         initialState,
         applyMiddleware(sagaMiddleware)
     );
-    console.log("Saga middleware implemented.");
     initSagas(sagaMiddleware);
     return store;
 }

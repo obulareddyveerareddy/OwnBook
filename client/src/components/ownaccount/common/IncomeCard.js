@@ -8,7 +8,6 @@ class IncomeCard extends React.Component{
     
     constructor(props){
         super(props);
-        console.log('I am at IncomeCard ....');
     }
 
     componentDidMount(){

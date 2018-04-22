@@ -23,18 +23,13 @@ class DashboardPage extends React.Component{
       var elem = $('.collapsible')[0];
       var instance = M.Collapsible.init(elem, {accordion: false});
     });
-    this.props.getAuthUserProfile();
-  }
-
-  componentWillReceiveProps(prevProps, nextProps){
-    console.log('~~~~~~~~~~~~~~~~ >>> componentWillReceiveProps(.,.) ', nextProps);
   }
 
   render(){
     let {auth} = this.props;
     return(
       <div className="container-o">
-        <Breadcrumb/>
+        <Breadcrumb />
         <div className="row">
           <div className="col s12 m6">
             <ul className="collapsible expandable">

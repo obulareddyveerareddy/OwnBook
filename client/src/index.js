@@ -9,9 +9,9 @@ import {Route, Switch, Redirect}    from 'react-router-dom';
 import ApolloClient                 from "apollo-boost";
 import registerServiceWorker        from './registerServiceWorker';
 
-import HomeRouter                     from './components/home/HomeRouter';
-import OwnAccountRouter             from './components/ownaccount/OwnAccountRouter';
-import configureStore               from './AppStore';
+import HomeRouter     from './components/home/HomeRouter';
+import OwnAccountLink from './components/ownaccount/OwnAccountLink';
+import configureStore from './AppStore';
 import './index.css';
 
 import gql from "graphql-tag";
@@ -32,12 +32,11 @@ client.query({
 
 export default class Main extends React.Component {
     render() {
-      console.log('--------------- I am at index.js ---------------');
       return (
         <Provider store={store}>
         <HashRouter>
           <Switch>
-            <Route path="/ownaccount/**" exact component={OwnAccountRouter} />
+            <Route path="/ownaccount/**" exact component={OwnAccountLink} />
             <Route path="/" component={HomeRouter} />
           </Switch>
         </HashRouter>

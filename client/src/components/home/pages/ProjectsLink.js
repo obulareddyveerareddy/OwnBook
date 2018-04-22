@@ -11,11 +11,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     googleOAuthSignIn: () => {
-      console.log('-------------------->>> googleOAuthSignIn <<<--------------------');
       fetch('http://localhost:5000/api/auth/google', {method: "GET"})
       .then((resp) => resp.json())
       .then(function(data) {
-          console.log('------------ /api/auth/google ---------------');
           console.log(data);
       });
     }

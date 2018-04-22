@@ -12,9 +12,7 @@ class OwnAccountHeader extends React.Component{
 
     componentDidMount(){
         $(document).ready(()=>{
-            console.log($(".dropdown-trigger"));
             var elem = $(".dropdown-trigger")[0];
-            console.log(elem);
             var instance = M.Dropdown.init(elem, {alignment:'right'});
         });
     }

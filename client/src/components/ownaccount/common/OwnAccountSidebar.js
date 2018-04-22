@@ -11,16 +11,22 @@ class OwnAccountSidebar extends React.Component{
         $(document).ready(()=>{
             var elem = $('.sidenav')[0];
             var instance = M.Sidenav.init(elem, {
-                menuWidth: 300, // Default is 300
-                edge: 'left', // Choose the horizontal origin
-                closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                draggable: true // Choose whether you can drag to open on touch screens
+                menuWidth: 300,
+                edge: 'left',
+                closeOnClick: false,
+                draggable: true
               });
             instance.open();
         });
     }
 
     render(){
+        let displayName, email, avatar_pic;
+        if(this.props.params.profile){
+            displayName = this.props.params.profile.displayName;
+            email = this.props.params.profile.email;
+            avatar_pic = this.props.params.profile.photos[0].value;
+        }
         return(
             <div>
                 <ul id="slide-out" className="sidenav sidenav-fixed">
@@ -29,9 +35,9 @@ class OwnAccountSidebar extends React.Component{
                             <div className="background">
                                 <img src="./assets/jumbotron-bg.jpg" width="250px" />
                             </div>
-                            <a href="#!user"><img className="circle" src="images/yuna.jpg" /></a>
-                            <a href="#!name"><span className="white-text name">John Doe</span></a>
-                            <a href="#!email"><span className="white-text email">jdandturk@gmail.com</span></a>
+                            <a href="#!user"><img className="circle" src={avatar_pic} /></a>
+                            <a href="#!name"><span className="white-text name">{displayName}</span></a>
+                            <a href="#!email"><span className="white-text email">{email}</span></a>
                         </div>
                     </li>
                     <li><a className="waves-effect" href="#!"><i className="fa fa-usd" />Budget</a></li>

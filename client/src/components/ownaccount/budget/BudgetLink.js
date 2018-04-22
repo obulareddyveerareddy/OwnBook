@@ -5,18 +5,14 @@ import * as authUserProfileAction   from './../../../actions/AuthUserProfileActi
 import BudgetPage                   from './BudgetPage';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('~~~~~~~~~~~~~ >>> BudgetLink ',state);
   return {
-    authUserProfile: state.authUserProfile
+    
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getAuthUserProfile:()=>{
-      console.log('~~~~~~~~~~~~~~~ >>> getAuthUserProfile:() <<< ~~~~~~~~~~~~~~~');
-      dispatch(authUserProfileAction.getAuthUserProfile());
-    }
+    
   }
 }
 

@@ -14,10 +14,7 @@ const ProjectsPage = ({title})=>{
                             <p>Own-Account helps you create a monthly budget so you can achieve your money goals. The application help to configure remainders. The application provides plug-ins for small businesses like Travels, Farming... to maintain & plan.</p>
                         </div>
                         <div className="card-action">
-                            <div style={{display:'flex', flexDirection:'column'}}>
                             <a  href='http://localhost:5000/api/auth/google'  className="waves-effect waves-light btn social google red lighten-1"><i className="fa fa-google"></i> Sign in with Google</a>
-                            <a  href='http://localhost:5000/api/auth/github'  className="waves-effect waves-light btn social google red lighten-1"><i className="fa fa-google"></i> Sign in with Github</a>
-                            </div>
                         </div>
                     </div>
                 </div>

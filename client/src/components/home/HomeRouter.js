@@ -24,7 +24,6 @@ class HomeRouter extends React.Component{
   }
 
   render(){
-    console.log(this.props);
     return(
       <div className="container-on">
         <div className="navbar-fixed">
