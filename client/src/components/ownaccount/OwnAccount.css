@@ -270,7 +270,7 @@
 
 /* Style the list */
 ul.breadcrumb {
-    padding: 10px 16px;
+    /* padding: 10px 16px; */
     list-style: none;
     background-color: transparent;
     color: black;

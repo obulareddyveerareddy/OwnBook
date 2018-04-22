@@ -33,11 +33,11 @@ class OwnAccountHeader extends React.Component{
             <div className="navbar-fixed">
                 <nav className="bg-luminous-vivid-pink">
                     <div className="nav-wrapper row">
-                        <div class="header-title col s3 m3 hide-on-small-and-down">      
-                            <span class="chapter-title">Own Account</span>
+                        <div className="header-title col s3 m3 hide-on-small-and-down">      
+                            <span className="chapter-title">Own Account</span>
                         </div>
-                        <div class="col s2 m2">
-                            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <div className="col s2 m2">
+                            <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         </div>
                         <ul className="right hide-on-med-and-down">
                             <li>

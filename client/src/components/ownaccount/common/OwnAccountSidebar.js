@@ -23,19 +23,19 @@ class OwnAccountSidebar extends React.Component{
     render(){
         return(
             <div>
-                <ul id="slide-out" class="sidenav sidenav-fixed">
+                <ul id="slide-out" className="sidenav sidenav-fixed">
                     <li>
-                        <div class="user-view">
-                            <div class="background">
+                        <div className="user-view">
+                            <div className="background">
                                 <img src="./assets/jumbotron-bg.jpg" width="250px" />
                             </div>
-                            <a href="#!user"><img class="circle" src="images/yuna.jpg" /></a>
-                            <a href="#!name"><span class="white-text name">John Doe</span></a>
-                            <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                            <a href="#!user"><img className="circle" src="images/yuna.jpg" /></a>
+                            <a href="#!name"><span className="white-text name">John Doe</span></a>
+                            <a href="#!email"><span className="white-text email">jdandturk@gmail.com</span></a>
                         </div>
                     </li>
-                    <li><a class="waves-effect" href="#!"><i className="fa fa-usd" />Budget</a></li>
-                    <li><div class="divider"></div></li>
+                    <li><a className="waves-effect" href="#!"><i className="fa fa-usd" />Budget</a></li>
+                    <li><div className="divider"></div></li>
                 </ul>
             </div>
         );

@@ -15,7 +15,7 @@ class OwnAccountRouter extends React.Component{
   render(){
     console.log('this is OwnAccountRouter .... '+this.props);
     return(
-      <div class="wrapper">
+      <div className="wrapper">
         <header>
           <OwnAccountHeader />
         </header>

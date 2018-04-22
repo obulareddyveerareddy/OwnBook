@@ -19,21 +19,70 @@ class IncomeCard extends React.Component{
 
     render(){
         return(
-            <div className="card">
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            <div>
+                <div className="row">
+                    <span className="card-title">{this.props.title}</span>
+                    <p>{this.props.description}</p>
                 </div>
-                <div class="card-tabs">
-                <ul class="tabs tabs-fixed-width">
-                    <li class="tab"><a href="#test4">Test 1</a></li>
-                    <li class="tab"><a class="active" href="#test5">Test 2</a></li>
-                    <li class="tab"><a href="#test6">Test 3</a></li>
-                </ul>
+                <div className="row">
+                    <div className="col s12">
+                        <ul className="tabs tabs-fixed-width">
+                            <li className="tab"><a className="active" href="#income-details">Details</a></li>
+                            <li className="tab"><a href="#add-new-income"><i className="fa fa-plus" /> Add Income</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card-content grey lighten-4">
-                    <div id="test4">Test 1</div>
-                    <div id="test5">Test 2</div>
-                    <div id="test6">Test 3</div>
+                <div className="row">
+                    <div className="col s12">
+                        <div id="income-details">
+                            <table className="highlight responsive-table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Label</th>
+                                    <th>Planned</th>
+                                    <th>Recieved</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><a href="#"><i className="fa fa-trash" /></a></td>
+                                    <td>Alvin</td>
+                                    <td>$0.87</td>
+                                    <td><label><input type="checkbox" checked="checked" disabled="disabled" /> <span></span></label></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#"><i className="fa fa-trash" /></a></td>
+                                    <td>Alan</td>
+                                    <td>$3.76</td>
+                                    <td><label><input type="checkbox" disabled="disabled" /> <span></span></label></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="add-new-income">
+                            <div className="row">
+                                <div className="input-field col s12 m6">
+                                    <input id="label" type="text" placeholder="Label" />
+                                    <label htmlFor="first_name">Label</label>
+                                </div>
+                                <div className="input-field col s12 m6">
+                                    <input id="planned" type="text" placeholder="$0.000" />
+                                    <label htmlFor="last_name">Planned</label>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col s12 m6">
+                                    <label><input type="checkbox" /> <span>Recieved</span></label>
+                                </div>
+                                <div className="col s12 m6">
+                                    <button className="btn waves-effect waves-light" type="submit" name="action">
+                                        <i className="fa fa-plus" /> Add Income
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
