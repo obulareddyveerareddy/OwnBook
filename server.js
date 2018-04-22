@@ -13,19 +13,36 @@ const port = process.env.PORT || 5000;
 auth(passport);
 app.use(passport.initialize());
 app.use(cors());
+
+
 app.get('/api/auth/google', passport.authenticate('google', {
-  scope: ['https://www.googleapis.com/auth/userinfo.profile']
+  scope:['https://www.googleapis.com/auth/userinfo.profile']
 }));
-app.get('/auth/google/callback',
-    passport.authenticate('google', {
-        failureRedirect: '/'
-    }),
-    (req, res) => {}
+
+app.get('/api/auth/github',
+  passport.authenticate('github'),
+  function(req, res){});
+app.get('/api/auth/github/callback',
+  passport.authenticate('github', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/login/callback');
+  });
+
+app.get('/api/auth/google/callback',
+    passport.authenticate('google', {failureRedirect:'/'}),
+    (req, res) => {
+        console.log('~~~~~~~~~~~~~~ /api/auth/google/callback ~~~~~~~~~~~~~~~~');
+        console.log(req.user);
+        req.session.token = req.user.token;
+        res.redirect('http://localhost:3000/#/ownaccount/home/budget');
+    }
 );
 
-app.get('/login/callback', (req, res)=>{
-  console.log('~~~~~~~~~~~~~~ Request Recieved from Google ~~~~~~~~~~~~~~~~');
-  res.redirect('http://localhost:3000/#/ownaccount/home/budget');
+app.get('/api/auth/google/profile', (req, res)=>{
+  console.log('~~~~~~~~~~~~~~ /api/auth/google/profile ~~~~~~~~~~~~~~~~');
+  console.log(req.user);
+  console.log(req.session);
+  res.send({id:202, name:'veera reddy.obula'});
 });
 
 app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));

@@ -23,6 +23,11 @@ class DashboardPage extends React.Component{
       var elem = $('.collapsible')[0];
       var instance = M.Collapsible.init(elem, {accordion: false});
     });
+    this.props.getAuthUserProfile();
+  }
+
+  componentWillReceiveProps(prevProps, nextProps){
+    console.log('~~~~~~~~~~~~~~~~ >>> componentWillReceiveProps(.,.) ', nextProps);
   }
 
   render(){
@@ -37,7 +42,7 @@ class DashboardPage extends React.Component{
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
                     <div><i className="fa fa-indent" aria-hidden="true"></i>Income</div>
-                    <div><span class="badge blue">4</span></div>
+                    <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
                 <div className="collapsible-body">
@@ -48,7 +53,7 @@ class DashboardPage extends React.Component{
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
                     <div><i className="fa fa-fighter-jet" />Giving</div>
-                    <div><span class="badge blue">4</span></div>
+                    <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -57,7 +62,7 @@ class DashboardPage extends React.Component{
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
                     <div><i className="fa fa-floppy-o" />Savings</div>
-                    <div><span class="badge blue">4</span></div>
+                    <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -66,7 +71,7 @@ class DashboardPage extends React.Component{
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
                     <div><i className="fa fa-home" />Housing</div>
-                    <div><span class="badge blue">4</span></div>
+                    <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -75,7 +80,7 @@ class DashboardPage extends React.Component{
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
                     <div><i className="fa fa-motorcycle" />Transportation</div>
-                    <div><span class="badge blue">4</span></div>
+                    <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -84,7 +89,7 @@ class DashboardPage extends React.Component{
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
                     <div><i className="fa fa-cutlery"/>Food</div>
-                    <div><span class="badge blue">4</span></div>
+                    <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -93,7 +98,7 @@ class DashboardPage extends React.Component{
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
                     <div><i className="fa fa-id-card-o"/>Lifestyle</div>
-                    <div><span class="badge blue">4</span></div>
+                    <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -102,7 +107,7 @@ class DashboardPage extends React.Component{
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
                     <div><i className="fa fa-medkit" />Insurance & Tax</div>
-                    <div><span class="badge blue">4</span></div>
+                    <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -111,7 +116,7 @@ class DashboardPage extends React.Component{
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
                     <div><i className="fa fa-rupee"/>Debit</div>
-                    <div><span class="badge blue">4</span></div>
+                    <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
