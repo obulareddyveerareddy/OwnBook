@@ -1,27 +1,18 @@
-import { Author, View } from './connectors';
-
+const channels = [];
+let nextId = 3;
 const resolvers = {
   Query: {
-    author(_, args) {
-      return Author.find({ where: args });
-    },
-    allAuthors(_, args) {
-      return Author.findAll();
+    channels: () => {
+      return channels;
     }
   },
-  Author: {
-    posts(author) {
-      return author.getPosts();
-    }
-  },
-  Post: {
-    author(post) {
-      return post.getAuthor();
+  Mutation: {
+    addChannel: (root, args) => {
+      const newChannel = { id: nextId++, name: args.name };
+      channels.push(newChannel);
+      return newChannel;
     },
-    views(post) {
-      return View.findOne({ postId: post.id }).then(view => view.views);
-    }
-  }
+  },
 };
 
 export default resolvers;

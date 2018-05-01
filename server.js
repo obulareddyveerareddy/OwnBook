@@ -1,6 +1,6 @@
 import express    from 'express';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
-import schema     from './server/data/schema';
+import schema     from './server/schema';
 import bodyParser from 'body-parser';
 import session    from 'express-session';
 import passport   from 'passport';

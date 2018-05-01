@@ -7,7 +7,7 @@ const ProjectsPage = ({title})=>{
                 <div className="col s12 m3">
                     <div className="card">
                         <div className="card-image">
-                            <img className="img-thumbnail rounded" src="./assets/own-account-projects-page-card-header.jpg" />
+                            <img className="img-thumbnail rounded" alt="Own-Account" src="./assets/own-account-projects-page-card-header.jpg" />
                             <div className="card-title col s12 m12 black-text text-darken-2 grey lighten-3">{title}</div>
                         </div>
                         <div className="card-content">
