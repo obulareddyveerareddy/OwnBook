@@ -2,10 +2,26 @@ import Sequelize from 'sequelize';
 import casual from 'casual';
 import _ from 'lodash';
 
-const db = new Sequelize('ownaccount', 'ownbook', 'veera@168', {
-  host:'localhost',
-  dialect: 'mysql'
-});
+let db;
+if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
+    var match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/)
+    db = new Sequelize(match[5], match[1], match[2], {
+        dialect:  'postgres',
+        protocol: 'postgres',
+        port:     match[4],
+        host:     match[3],
+        logging: false,
+        dialectOptions: {
+            ssl: true
+        }
+    });
+
+  } else {
+    db = new Sequelize('ownaccount', 'ownbook', 'veera@168', {
+      host:'localhost',
+      dialect: 'mysql'
+    })
+  }
 
 const CodesModel = db.define('codes', {
   name: { type: Sequelize.STRING },
