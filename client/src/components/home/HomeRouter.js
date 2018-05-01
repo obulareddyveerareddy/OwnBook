@@ -9,7 +9,6 @@ import ResumePage                 from './pages/ResumePage';
 import ProjectsLink               from './pages/ProjectsLink';
 
 import M                          from "materialize-css/dist/js/materialize.min.js";
-import 'font-awesome/css/font-awesome.css';
 import "materialize-css/dist/css/materialize.min.css";
 import './Home.css';
 

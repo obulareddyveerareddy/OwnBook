@@ -17,7 +17,7 @@ class OwnAccountHeader extends React.Component{
         });
     }
 
-    toggleSideNav = (event) =>{
+    toggleSideNav(event){
         event.preventDefault();
         $(document).ready(()=>{
             var elem = $('.sidenav')[0];

@@ -1,7 +1,6 @@
 import React    from 'react';
 import $        from 'jquery/dist/jquery';
 import M        from "materialize-css/dist/js/materialize.min.js";
-import 'font-awesome/css/font-awesome.css';
 import "materialize-css/dist/css/materialize.min.css";
 
 class IncomeCard extends React.Component{

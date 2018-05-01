@@ -14,13 +14,13 @@ import { ApolloProvider }           from 'react-apollo';
 import HomeRouter     from './components/home/HomeRouter';
 import OwnAccountLink from './components/ownaccount/OwnAccountLink';
 import configureStore from './AppStore';
-import './index.css';
+import './index.scss';
 
 import gql from "graphql-tag";
 
 const store = configureStore();
 const client = new ApolloClient({
-  link: new HttpLink({uri: "http://localhost:5000/graphql"}),
+  link: new HttpLink({uri: "/graphql"}),
   cache: new InMemoryCache()
 });
 client.query({

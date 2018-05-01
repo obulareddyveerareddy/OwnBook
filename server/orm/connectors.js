@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 import casual from 'casual';
 import _ from 'lodash';
 
-const db = new Sequelize('ownaccount', 'root', 'veera@168', {
+const db = new Sequelize('ownaccount', 'ownbook', 'veera@168', {
   host:'localhost',
   dialect: 'mysql'
 });

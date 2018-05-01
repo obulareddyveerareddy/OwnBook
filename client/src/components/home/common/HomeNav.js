@@ -13,13 +13,13 @@ class HomeNav extends React.Component{
     return(
       <div id="profile-page-header" className="card">
           <div className="card-image waves-effect waves-block waves-light">
-              <img className="activator" src="./assets/user-profile-bg.jpg" alt="user background" />                    
+              <img className="activator" src="./public/assets/user-profile-bg.jpg" alt="user background" />                    
           </div>
           <div className="card-content">
             <div className="row sm-height">                    
               <div className="col s12 m2">
                 <div className="card-profile-image">
-                  <img src="./assets/avatar.jpg" alt="profile image" className="circle z-depth-2 responsive-img activator" />
+                  <img src="./public/assets/avatar.jpg" alt="profile image" className="circle z-depth-2 responsive-img activator" />
                 </div>
               </div>
               <div className="col s12 m5">

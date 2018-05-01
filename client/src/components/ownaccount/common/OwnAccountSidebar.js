@@ -33,7 +33,7 @@ class OwnAccountSidebar extends React.Component{
                     <li>
                         <div className="user-view">
                             <div className="background">
-                                <img src="./assets/jumbotron-bg.jpg" width="250px" />
+                                <img src="./public/assets/jumbotron-bg.jpg" width="250px" />
                             </div>
                             <a href="#!user"><img className="circle" src={avatar_pic} /></a>
                             <a href="#!name"><span className="white-text name">{displayName}</span></a>
