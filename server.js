@@ -42,9 +42,12 @@ app.get('/api/auth/google', passport.authenticate('google', {
 let envName;
 if(process.env.ENV_NAME === 'heroku'){
   envName = 'https://ownbook.herokuapp.com/#/ownaccount/home/budget';
+}else if(process.env.LOGNAME ==='ubuntu'){
+  envName = 'http://own-book-obulareddyveerareddy.c9users.io/#/ownaccount/home/budget';
 }else{
   envName = 'http://localhost:8080/#/ownaccount/home/budget';
 }
+
 app.get('/api/auth/google/callback',
     passport.authenticate('google', {failureRedirect:'/'}),
     (req, res) => {

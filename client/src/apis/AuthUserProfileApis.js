@@ -32,16 +32,18 @@ export function findAccountByGoogleRefId({ googlerefid }){
     });
 }
 
-export function addNewAccount(displayName, email, googleRefId){
-    console.log('~~~~~~~~~~~~~ >> addNewAccount(.) << ~~~~~~~~~~~~~', displayName);
-    const newAccount =  gql`
-        mutate addNewAccount{
-            addNewAccount(displayName:'deepthi.juni', email:'deepthi.juni@gmail.com', googleRefId:'81238719237898172398'){
+export function addNewAccount(account){
+    console.log('~~~~~~~~~~~~~ >> addNewAccount(.) << ~~~~~~~~~~~~~', account);
+    return apolloClientRef.mutate({mutation:gql`
+        mutation addNewAccount($displayName:String!, $email:String, $googleRefId:String){
+            addNewAccount(displayName:$displayName, email:$email, googleRefId:$googleRefId){
+        		id	
                 displayName
                 email
                 googleRefId
             }
         }
-    `;
-    return apolloClientRef.mutate({newAccount, variables: {displayName, email, googleRefId}});
+    `, variables: account
+        
+    });
 }
