@@ -1,0 +1,22 @@
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Arvo|Indie+Flower|Slabo|Open+Sans:400italic,700italic,400,700);
+
+// Font Variables
+$arvo-slab: 'Arvo', serif;
+$open-sans: 'Open Sans', sans-serif;
+$indie-flower:'Slabo';
+
+#contactPage{
+  .heading-name{
+    font-family: $arvo-slab;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .heading-address{
+    font-family: $indie-flower;
+    font-weight: 600;
+    padding-left: 2.5rem;
+    font-size: 16px;
+    margin: 0px;
+  }
+}

@@ -15,13 +15,7 @@ const compiler = webpack(config);
 const app = express();
 app.use(express.static('client'));
 
-app.use(session({
-  genid: function(req) {
-    return uuid.v4();
-  },
-  secret: "V33ra@5322",
-  cookie: { maxAge: 60000 }
- }));
+app.use(session({secret: "V33ra@5322"}));
 
 const port = process.env.PORT || 8080;
 auth(passport);
@@ -33,7 +27,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: config.output.publicPath
 }));
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+
+app.use('/graphql', bodyParser.json(), graphqlExpress(req => ({
+  schema,
+  context: { session: req.session.passport.user }
+})));
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
 app.get('/api/auth/google', passport.authenticate('google', {
@@ -45,7 +43,7 @@ let envName;
 if(process.env.ENV_NAME === 'heroku'){
   envName = 'https://ownbook.herokuapp.com/#/ownaccount/home/budget';
 }else{
-  envName = 'http://own-book-obulareddyveerareddy.c9users.io/#/ownaccount/home/budget';
+  envName = 'http://localhost:8080/#/ownaccount/home/budget';
 }
 app.get('/api/auth/google/callback',
     passport.authenticate('google', {failureRedirect:'/'}),
@@ -53,10 +51,6 @@ app.get('/api/auth/google/callback',
         res.redirect(envName);
     }
 );
-
-app.get('/api/auth/google/profile', (req, res)=>{
-  res.send(req.session.passport.user);
-});
 
 app.get('/', (req, res)=>{
   res.sendFile(path.join(__dirname + '/client/public/index.html'));

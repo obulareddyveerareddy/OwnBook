@@ -35,7 +35,7 @@ class DashboardPage extends React.Component{
               <li>
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
-                    <div><i className="fa fa-indent" aria-hidden="true"></i>Income</div>
+                    <div  className="valign-wrapper"><i class="material-icons">attach_money</i>Income</div>
                     <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
@@ -46,7 +46,7 @@ class DashboardPage extends React.Component{
               <li>
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
-                    <div><i className="fa fa-fighter-jet" />Giving</div>
+                    <div  className="valign-wrapper"><i class="material-icons">input</i>Giving</div>
                     <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
@@ -55,7 +55,7 @@ class DashboardPage extends React.Component{
               <li>
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
-                    <div><i className="fa fa-floppy-o" />Savings</div>
+                    <div className="valign-wrapper"><i class="material-icons">save</i>Savings</div>
                     <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
@@ -64,7 +64,7 @@ class DashboardPage extends React.Component{
               <li>
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
-                    <div><i className="fa fa-home" />Housing</div>
+                    <div className="valign-wrapper"><i class="material-icons">home</i>Housing</div>
                     <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
@@ -73,7 +73,7 @@ class DashboardPage extends React.Component{
               <li>
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
-                    <div><i className="fa fa-motorcycle" />Transportation</div>
+                    <div className="valign-wrapper"><i class="material-icons">motorcycle</i>Transportation</div>
                     <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ class DashboardPage extends React.Component{
               <li>
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
-                    <div><i className="fa fa-cutlery"/>Food</div>
+                    <div className="valign-wrapper"><i class="material-icons">fastfood</i>Food</div>
                     <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
@@ -91,7 +91,7 @@ class DashboardPage extends React.Component{
               <li>
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
-                    <div><i className="fa fa-id-card-o"/>Lifestyle</div>
+                    <div className="valign-wrapper"><i class="material-icons">style</i>Lifestyle</div>
                     <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
@@ -100,7 +100,7 @@ class DashboardPage extends React.Component{
               <li>
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
-                    <div><i className="fa fa-medkit" />Insurance & Tax</div>
+                    <div className="valign-wrapper"><i class="material-icons">perm_media</i>Insurance & Tax</div>
                     <div><span className="badge blue">4</span></div>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ class DashboardPage extends React.Component{
               <li>
                 <div className="collapsible-header">
                   <div style={{display:'flex', justifyContent:'space-between', width: '100%'}}>
-                    <div><i className="fa fa-rupee"/>Debit</div>
+                    <div className="valign-wrapper"><i class="material-icons">credit_card</i>Debit</div>
                     <div><span className="badge blue">4</span></div>
                   </div>
                 </div>

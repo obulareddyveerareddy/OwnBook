@@ -4,22 +4,25 @@ scalar Date
 type Query {
   getAllAccounts: [Accounts]
   accounts(id:Int): Accounts
+  getProfileByAccountId:Session
+  findAccountByGooglerefid(googlerefid:String):Accounts
 }
 
 type Accounts{
   id: Int
-  firstName: String
-  lastName: String
+  displayName: String
   email: String
+  googleRefId:String
   createdAt: Date
   updatedAt: Date
 }
 
+type Session{
+  profile:String
+}
+
 type Mutation {
-  addAccounts(firstName:String!, lastName:String, email:String!): Accounts
-  updateAccounts(id:Int!, firstName:String, lastName:String, email:String):Accounts
-  deleteAccounts(id:Int!):Accounts
-  truncateAccounts:Accounts
+  addNewAccount(displayName:String!, email:String, googleRefId:String): Accounts
 }
 `;
 

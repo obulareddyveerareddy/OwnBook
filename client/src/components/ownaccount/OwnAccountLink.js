@@ -5,6 +5,7 @@ import * as authUserProfileAction   from './../../actions/AuthUserProfileAction'
 import OwnAccountRouter             from './OwnAccountRouter';
 
 const mapStateToProps = (state, ownProps) => {
+  console.log('~~~~~~~>>> OwnAccountLink.js >>> ', state.authUserProfile);
   return {
     authUserProfile: state.authUserProfile
   }

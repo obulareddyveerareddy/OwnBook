@@ -46,9 +46,9 @@ CodevaluesModel.belongsTo(CodesModel);
 
 
 const AccountsModel = db.define('accounts', {
-  firstName: { type: Sequelize.STRING },
-  lastName: { type: Sequelize.STRING },
+  displayName:{ type: Sequelize.STRING },
   email: { type: Sequelize.STRING },
+  googleRefId:{ type: Sequelize.STRING },
 });
 
 const TransactionsModel = db.define('transactions', {

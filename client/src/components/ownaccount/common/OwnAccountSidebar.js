@@ -40,7 +40,7 @@ class OwnAccountSidebar extends React.Component{
                             <a href="#!email"><span className="white-text email">{email}</span></a>
                         </div>
                     </li>
-                    <li><a className="waves-effect" href="#!"><i className="fa fa-usd" />Budget</a></li>
+                    <li><a className="waves-effect valign-wrapper" href="#!"><i class="material-icons">book</i>Budget</a></li>
                     <li><div className="divider"></div></li>
                 </ul>
             </div>

@@ -24,7 +24,7 @@ class HomeNav extends React.Component{
               </div>
               <div className="col s12 m5">
                 <div className="card-title grey-text text-darken-4 name-position">
-                  <p>Veera Reddy ObulaReddy</p>
+                  <p>Veera Bhargava Reddy ObulaReddy</p>
                 </div>
               </div>
               <div className="col s12 m5 right-align">

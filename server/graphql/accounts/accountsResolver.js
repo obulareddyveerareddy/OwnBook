@@ -19,36 +19,28 @@ const accountsResolver = {
     },
   }),
   Query: {
-    accounts: (_, args) => {
+    accounts: (_, args, context) => {
       return Accounts.find({ where: args });
     },
     getAllAccounts: () => {
       return Accounts.findAll();
+    },
+    getProfileByAccountId:(_, args, context) =>{
+      console.log('~~~~~~~~~~~~~~~ >>> getProfileByAccountId:(...) <<< ~~~~~~~~~~~~~~~');
+      return {profile:JSON.stringify(context.session)};
+    },
+    findAccountByGooglerefid:(_, args, context) => {
+      console.log('~~~~~~~~~~~~~~~ >>> findAccountByGooglerefid:(...) <<< ~~~~~~~~~~~~~~~');
+      console.log(args);
+      return Accounts.find({where: args});
     }
   },
   Mutation:{
-      addAccounts:(_, args) =>{
-        return Accounts.build(args).save();
-      },
-      updateAccounts:(_, args) =>{
-        let updateSet = {};
-        if(args.firstName){
-          updateSet.firstName = args.firstName
-        }
-        if(args.lastName){
-          updateSet.lastName = args.lastName
-        }
-        if(args.email){
-          updateSet.email = args.email
-        }
-        return Accounts.update(updateSet, { where: { id: args.id }});
-      },
-      deleteAccounts:(_, args) =>{
-        return Accounts.destroy({ where: { id: args.id }});
-      },
-      truncateAccounts:()=>{
-        return Accounts.destroy({truncate:true});
-      }
+    addNewAccount:(_, args, context) =>{
+      console.log('~~~~~~~~~~~~~~~ >>> addNewAccount:(...) <<< ~~~~~~~~~~~~~~~');
+      console.log(args);
+      return Accounts.build(args).save();
+    }
   }
 };
 
