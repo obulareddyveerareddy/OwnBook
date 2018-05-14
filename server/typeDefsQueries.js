@@ -1,14 +1,8 @@
 import { mergeTypes }         from 'merge-graphql-schemas';
-import accountsTypeDefs       from './graphql/accounts/accountsTypeDefs';
-import transactionsTypeDefs   from './graphql/transactions/transactionsTypeDefs';
-import codesTypeDefs          from './graphql/metadata/codesTypeDefs';
-import codevaluesTypeDefs     from './graphql/metadata/codevaluesTypeDefs';
+import appuserTypeDefs       from './graphql/appusers/appuserTypeDefs';
 
 const types = [
-  accountsTypeDefs,
-  transactionsTypeDefs,
-  codesTypeDefs,
-  codevaluesTypeDefs
+  appuserTypeDefs,
 ];
 
 export default mergeTypes(types, { all: true });

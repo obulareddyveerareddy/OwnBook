@@ -1,0 +1,20 @@
+#accountsPageId{
+    
+    .codesDropDownRow{
+        display:flex;
+        flex-direction:row;
+        justify-content:flex-end;
+    }
+    
+    .d--flex--column{
+        display:flex;
+        flex-direction:column;
+    }
+    
+    .pull--flex--right{
+        display:flex;
+        flex-direction:row;
+        justify-content:flex-end;
+        
+    }
+}

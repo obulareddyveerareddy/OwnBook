@@ -30,43 +30,34 @@ if (process.env.DATABASE_URL) {
       dialect: 'mysql'
     })
   }
-
-const CodesModel = db.define('codes', {
-  name: { type: Sequelize.STRING },
-  description: { type: Sequelize.STRING }
-});
-
-const CodevaluesModel = db.define('codevalues', {
-  name: { type: Sequelize.STRING },
-  description: { type: Sequelize.STRING },
-  codeId:{type:Sequelize.INTEGER}
-});
-CodesModel.hasMany(CodevaluesModel);
-CodevaluesModel.belongsTo(CodesModel);
-
-
-const AccountsModel = db.define('accounts', {
+  
+const AppUserModel = db.define('app_user', {
   displayName:{ type: Sequelize.STRING },
   email: { type: Sequelize.STRING },
   googleRefId:{ type: Sequelize.STRING },
 });
 
-const TransactionsModel = db.define('transactions', {
-  label: { type: Sequelize.STRING },
-  amount: { type: Sequelize.FLOAT },
-  recieved: { type: Sequelize.BOOLEAN },
-  given: { type: Sequelize.BOOLEAN },
-  accountId:{type: Sequelize.INTEGER}
+const AccountsModel = db.define('accounts', {
+  bankName:{ type: Sequelize.STRING },
+  accountHolderName:{ type: Sequelize.STRING },
+  accountNumber:{ type: Sequelize.STRING },
+  aliasName:{ type: Sequelize.STRING },
+  accountType:{ type: Sequelize.STRING },
+  appUserId:{ type: Sequelize.INTEGER },
 });
 
-AccountsModel.hasMany(TransactionsModel);
-TransactionsModel.belongsTo(AccountsModel);
+const CardDetailsModel = db.define('card_details', {
+  accountId:{type: Sequelize.INTEGER},
+  detailEntity:{ type: Sequelize.STRING },
+  detailValue:{ type: Sequelize.STRING },
+})
 
+AppUserModel.hasMany(AccountsModel);
+AccountsModel.hasMany(CardDetailsModel);
 db.sync();
 
-const Accounts      = db.models.accounts;
-const Transactions  = db.models.transactions;
-const Codes         = db.models.codes;
-const Codevalues    = db.models.codevalues;
+const AppUser     = db.models.app_user;
+const Accounts    = db.models.accounts;
+const CardDetails = db.models.card_details;
 
-export { Accounts, Transactions, Codes, Codevalues };
+export { AppUser, Accounts, CardDetails };

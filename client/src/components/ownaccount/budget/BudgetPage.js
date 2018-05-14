@@ -13,11 +13,23 @@ class DashboardPage extends React.Component{
     this.state = {
       dataSet:[],
       income:{title:'Income', 
-              description:'Actual take home pay. If your income varies, estimate and adjust as needed.'}
+              description:'Actual take home pay. If your income varies, estimate and adjust as needed.'},
+      breadcrumb:this.props.breadcrumb
     }
+  }
+    
+  componentWillReceiveProps(newProps) {
+      console.log('~~~~~~~~~~~~~~~~ >>> DashboardPage <:::> componentWillReceiveProps <<< ~~~~~~~~~~~~~~~~', newProps);
+      console.log(newProps.breadcrumb);
+      if( newProps.breadcrumb !== this.props.breadcrumb ){
+          console.log('~~~~~~~~~~~~~~~~~ >>> Update State <<< ~~~~~~~~~~~~~~~~~');
+          this.setState({ breadcrumb: newProps.breadcrumb });
+          console.log(this.state.breadcrumb);
+      }
   }
 
   componentDidMount(){
+    this.props.fetchBudgetStateBreadcrumbDetails();
     $(document).ready(()=>{
       var elem = $('.collapsible')[0];
       var instance = M.Collapsible.init(elem, {accordion: false});
@@ -28,7 +40,7 @@ class DashboardPage extends React.Component{
     let {auth} = this.props;
     return(
       <div className="container-o">
-        <Breadcrumb />
+        <Breadcrumb params={this.state.breadcrumb} />
         <div className="row">
           <div className="col s12 m6">
             <ul className="collapsible expandable">

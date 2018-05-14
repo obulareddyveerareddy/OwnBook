@@ -41,18 +41,24 @@ app.get('/api/auth/google', passport.authenticate('google', {
 
 let envName;
 if(process.env.ENV_NAME === 'heroku'){
-  envName = 'https://ownbook.herokuapp.com/#/ownaccount/home/budget';
+  envName = 'https://ownbook.herokuapp.com/';
 }else if(process.env.LOGNAME ==='ubuntu'){
-  envName = 'http://own-book-obulareddyveerareddy.c9users.io/#/ownaccount/home/budget';
+  envName = 'http://own-book-obulareddyveerareddy.c9users.io/';
 }else{
-  envName = 'http://localhost:8080/#/ownaccount/home/budget';
+  envName = 'http://localhost:8080/';
 }
-
 app.get('/api/auth/google/callback',
-    passport.authenticate('google', {failureRedirect:'/'}),
-    (req, res) => {
-        res.redirect(envName);
+  passport.authenticate('google'),
+  (err, req, res, next) => {
+    if (err.name === 'TokenError') {
+     res.redirect('/api/auth/google');
+    } else {
+     res.redirect(envName);
     }
+  },
+  (req, res) => {
+    res.redirect(envName+'#/ownaccount/home/budget');
+  }
 );
 
 app.get('/', (req, res)=>{

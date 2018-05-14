@@ -1,6 +1,7 @@
 import React    from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
+import AccountsLink           from './accounts/AccountsLink';
 import BudgetLink             from './budget/BudgetLink';
 import OwnAccountHeader       from './common/OwnAccountHeader';
 import OwnAccountSidebar      from './common/OwnAccountSidebar';
@@ -31,6 +32,7 @@ class OwnAccountRouter extends React.Component{
           <div className="col s12 m10">
             <Switch>
               <Route path="/ownaccount/home/budget" exact component={BudgetLink} />
+              <Route path="/ownaccount/home/accounts" exact component={AccountsLink} />
             </Switch>
           </div>
         </div>

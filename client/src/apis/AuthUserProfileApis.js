@@ -2,12 +2,12 @@ import fetch from 'cross-fetch';
 import apolloClientRef  from './../apolloClientInit';
 import gql from "graphql-tag";
 
-export function getApiAuthGoogleProfile(){
-    console.log('~~~~~~~~~~~~~ >> getApiAuthGoogleProfile << ~~~~~~~~~~~~~');
+export function getGoogleAuthSessionProfile(){
+    console.log('~~~~~~~~~~~~~ >> getGoogleAuthSessionProfile << ~~~~~~~~~~~~~');
     return apolloClientRef.query({
         query: gql`
-        query getApiAuthGoogleProfile{
-                getProfileByAccountId{
+        query getGoogleAuthSessionProfile{
+            getGoogleAuthSessionProfile{
                 profile
             }
         }
@@ -15,12 +15,12 @@ export function getApiAuthGoogleProfile(){
     });
 }
 
-export function findAccountByGoogleRefId({ googlerefid }){
-    console.log('~~~~~~~~~~~~~ >> findAccountByGoogleRefId(.) << ~~~~~~~~~~~~~', googlerefid);
+export function findAppUserByGooglerefid({ googlerefid }){
+    console.log('~~~~~~~~~~~~~ >> findAppUserByGooglerefid(.) << ~~~~~~~~~~~~~', googlerefid);
     return apolloClientRef.query({
         query: gql`
-            query findAccountByGoogleRefId($googlerefid:String){
-                findAccountByGooglerefid(googlerefid:$googlerefid){
+            query findAppUserByGooglerefid($googlerefid:String){
+                findAppUserByGooglerefid(googlerefid:$googlerefid){
                     id
                     displayName
                     email
@@ -32,11 +32,11 @@ export function findAccountByGoogleRefId({ googlerefid }){
     });
 }
 
-export function addNewAccount(account){
-    console.log('~~~~~~~~~~~~~ >> addNewAccount(.) << ~~~~~~~~~~~~~', account);
+export function addNewAppUser(account){
+    console.log('~~~~~~~~~~~~~ >> addNewAppUser(.) << ~~~~~~~~~~~~~', account);
     return apolloClientRef.mutate({mutation:gql`
-        mutation addNewAccount($displayName:String!, $email:String, $googleRefId:String){
-            addNewAccount(displayName:$displayName, email:$email, googleRefId:$googleRefId){
+        mutation addNewAppUser($displayName:String!, $email:String, $googleRefId:String){
+            addNewAppUser(displayName:$displayName, email:$email, googleRefId:$googleRefId){
         		id	
                 displayName
                 email

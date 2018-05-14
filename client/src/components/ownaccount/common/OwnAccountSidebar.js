@@ -17,6 +17,9 @@ class OwnAccountSidebar extends React.Component{
                 draggable: true
               });
             instance.open();
+            
+            var elems = document.querySelectorAll('.collapsible');
+            var instances = M.Collapsible.init(elems);
         });
     }
 
@@ -40,8 +43,31 @@ class OwnAccountSidebar extends React.Component{
                             <a href="#!email"><span className="white-text email">{email}</span></a>
                         </div>
                     </li>
-                    <li><a className="waves-effect valign-wrapper" href="#!"><i class="material-icons">book</i>Budget</a></li>
+                    <li><a className="waves-effect valign-wrapper" href="#/ownaccount/home/budget"><i className="material-icons">book</i>Budget</a></li>
                     <li><div className="divider"></div></li>
+                    <li><a className="waves-effect valign-wrapper" href="#/ownaccount/home/accounts"><i className="material-icons">account_box</i>Accounts</a></li>
+                    <li><div className="divider"></div></li>
+                    <li>
+                        <ul className="collapsible">
+                            <li>
+                                <a className="collapsible-header">Accounts <i className="material-icons">arrow_drop_down</i></a>
+                                <div className="collapsible-body">
+                                    <ul>
+                                        <li>
+                                            <a className="waves-effect valign-wrapper" href="#/ownaccount/home/accounts/manage">
+                                                <i className="material-icons">account_box</i>Manage Accounts
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a className="waves-effect valign-wrapper" href="#/ownaccount/home/accounts/manage">
+                                                <i className="material-icons">account_box</i>Add Accounts
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         );
