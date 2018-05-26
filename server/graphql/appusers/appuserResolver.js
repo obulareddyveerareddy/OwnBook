@@ -26,21 +26,14 @@ const appuserResolver = {
       return AppUser.find({ where: args });
     },
     getGoogleAuthSessionProfile:(_, args, context) =>{
-      console.log('~~~~~~~~~~~~~~~ >>> getGoogleAuthSessionProfile:(...) <<< ~~~~~~~~~~~~~~~');
-      console.log(context);
       return {profile:JSON.stringify(context.session)};
     },
     findAppUserByGooglerefid:(_, args, context) => {
-      console.log('~~~~~~~~~~~~~~~ >>> findAppUserByGooglerefid:(...) <<< ~~~~~~~~~~~~~~~');
-      console.log(args);
       return AppUser.find({where: args});
     }
   },
   Mutation:{
     addNewAppUser:(_, args, context) =>{
-      console.log('~~~~~~~~~~~~~~~ >>> addNewAppUser:(...) <<< ~~~~~~~~~~~~~~~');
-      console.log(args);
-      console.log(context);
       return AppUser.build(args).save();
     }
   }

@@ -36,6 +36,10 @@ class AccountsDashboardPage extends React.Component{
     }
     
     render(){
+        let accounts = [];
+        if(this.state.accounts){
+            accounts = this.state.accounts;
+        }
         return(
             <div className="container-o" id="accountsPageId">
                 <div className="row">
@@ -61,9 +65,9 @@ class AccountsDashboardPage extends React.Component{
                                     </thead>
                                     <tbody>
                                         {
-                                            this.state.accounts.map((item, index)=>{
+                                            accounts.map((item)=>{
                                                 return <tr>
-                                                            <td>{index}</td>
+                                                            <td>#</td>
                                                             <td>{item.aliasName}</td>
                                                             <td>{item.bankName}</td>
                                                             <td>{item.accountHolderName}</td>

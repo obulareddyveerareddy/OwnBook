@@ -5,7 +5,6 @@ import Sequelize from 'sequelize';
 const codeValuesResolver = {
   Query: {
     getCodeValueByCodeId:(_, args)=>{
-        console.log('~~~~~~~~~~~~~~~~~~~ >>> getCodeValueByCodeId ---> ', args);
         /*
         return CodeValues.find({
             include:[
@@ -38,8 +37,6 @@ const codeValuesResolver = {
   },
   Mutation:{
     addCodeValue:(_, args, context) =>{
-        console.log('~~~~~~~~~~~~~~~ >>> addCode:(...) <<< ~~~~~~~~~~~~~~~');
-        console.log(args);
         return CodeValues.build(args).save();
     },
     updateCodeValue:(_, args) =>{

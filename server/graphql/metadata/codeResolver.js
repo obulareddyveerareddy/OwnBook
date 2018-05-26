@@ -16,8 +16,6 @@ const codeResolver = {
   },
   Mutation:{
     addCode:(_, args, context) =>{
-        console.log('~~~~~~~~~~~~~~~ >>> addCode:(...) <<< ~~~~~~~~~~~~~~~');
-        console.log(args);
         return Code.build(args).save();
     },
     updateCode:(_, args, context) =>{

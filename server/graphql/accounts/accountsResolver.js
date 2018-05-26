@@ -5,8 +5,6 @@ import * as _ from 'lodash';
 const accountsResolver = {
   Query: {
     getAllAccountsByAppUserId: (_, args, context) => {
-      console.log('~~~~~~~~~~~~~~~ >>> getAllAccountsByAppUserId:(...) <<< ~~~~~~~~~~~~~~~');
-      console.log(context);
         return new Promise((resolve, reject)=>{
             AppUser.find({where: {googleRefId:context.session.profile.id}}).then((appUserResp) => {
                 Accounts.find({where: {appUserId:appUserResp.id}}).then((accounts)=>{
