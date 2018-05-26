@@ -7,7 +7,7 @@ const accountsResolver = {
     getAllAccountsByAppUserId: (_, args, context) => {
         return new Promise((resolve, reject)=>{
             AppUser.find({where: {googleRefId:context.session.profile.id}}).then((appUserResp) => {
-                Accounts.find({where: {appUserId:appUserResp.id}}).then((accounts)=>{
+                Accounts.findAll({where: {appUserId:appUserResp.id}}).then((accounts)=>{
                     resolve(accounts);
                 });
             });

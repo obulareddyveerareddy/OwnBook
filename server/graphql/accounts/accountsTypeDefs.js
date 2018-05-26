@@ -1,7 +1,7 @@
 const accountsTypeDefs = `
 
 type Query {
-  getAllAccountsByAppUserId(id:Int): Accounts,
+  getAllAccountsByAppUserId(id:Int): [Accounts],
   getAllAccounts:[Accounts]
 }
 

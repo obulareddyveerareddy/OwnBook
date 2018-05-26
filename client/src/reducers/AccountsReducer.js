@@ -10,7 +10,7 @@ export default function emitAccountsObject(state = [], action){
             return response;
         case AccountsActionTypes.RESP_FETCH_ACCOUNT_INFO:
             console.log('~~~~~~~~ >>> 1) AccountsReducer RESP_FETCH_ACCOUNT_INFO >>> ', action.payload);
-            return action.payload;
+            return [...action.payload];
         default:
             return state;
     }

@@ -17,9 +17,10 @@ class AccountsDashboardPage extends React.Component{
     
     componentWillReceiveProps(newProps) {
         console.log('~~~~~~~~~~~~~~~~ >>> AccountsDashboardPage <:::> componentWillReceiveProps <<< ~~~~~~~~~~~~~~~~', newProps);
-        console.log(newProps.accounts);
+        console.log(newProps);
         if( newProps.accounts !== this.props.accounts ){
             console.log('~~~~~~~~~~~~~~~~~ >>> Update State <<< ~~~~~~~~~~~~~~~~~');
+            console.log(newProps.accounts);
             this.setState({ accounts: newProps.accounts });
             console.log(this.state.accounts);
         }
