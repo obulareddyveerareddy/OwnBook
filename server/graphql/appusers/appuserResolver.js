@@ -40,6 +40,7 @@ const appuserResolver = {
     addNewAppUser:(_, args, context) =>{
       console.log('~~~~~~~~~~~~~~~ >>> addNewAppUser:(...) <<< ~~~~~~~~~~~~~~~');
       console.log(args);
+      console.log(context);
       return AppUser.build(args).save();
     }
   }

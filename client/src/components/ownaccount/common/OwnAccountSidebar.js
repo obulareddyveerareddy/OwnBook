@@ -45,7 +45,7 @@ class OwnAccountSidebar extends React.Component{
                     </li>
                     <li><a className="waves-effect valign-wrapper" href="#/ownaccount/home/budget"><i className="material-icons">book</i>Budget</a></li>
                     <li><div className="divider"></div></li>
-                    <li><a className="waves-effect valign-wrapper" href="#/ownaccount/home/accounts"><i className="material-icons">account_box</i>Accounts</a></li>
+                    <li><a className="waves-effect valign-wrapper" href="#/ownaccount/home/accounts/dashboard"><i className="material-icons">account_box</i>Accounts</a></li>
                     <li><div className="divider"></div></li>
                     <li>
                         <ul className="collapsible">
@@ -54,13 +54,13 @@ class OwnAccountSidebar extends React.Component{
                                 <div className="collapsible-body">
                                     <ul>
                                         <li>
-                                            <a className="waves-effect valign-wrapper" href="#/ownaccount/home/accounts/manage">
-                                                <i className="material-icons">account_box</i>Manage Accounts
+                                            <a className="waves-effect valign-wrapper" href="#/ownaccount/home/accounts/dashboard">
+                                                <i className="material-icons">account_box</i>Dashboard
                                             </a>
                                         </li>
                                         <li>
                                             <a className="waves-effect valign-wrapper" href="#/ownaccount/home/accounts/manage">
-                                                <i className="material-icons">account_box</i>Add Accounts
+                                                <i className="material-icons">account_box</i>Add Account
                                             </a>
                                         </li>
                                     </ul>

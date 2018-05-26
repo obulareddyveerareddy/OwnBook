@@ -1,68 +1,80 @@
 import React        from 'react';
 import $            from 'jquery/dist/jquery';
 import M            from "materialize-css/dist/js/materialize.min.js";
-import Breadcrumb   from './../common/Breadcrumb';
 
-import './AccountsPageStyles.scss'
 
-class AccountsPage extends React.Component{
+
+class AccountsDashboardPage extends React.Component{
     
     constructor(props){
         super(props);
         this.state = {
-            breadcrumb: this.props.breadcrumb
+            breadcrumb: this.props.breadcrumb,
+            accounts:[]
         }
     }
     
+    
     componentWillReceiveProps(newProps) {
-        console.log('~~~~~~~~~~~~~~~~ >>> AccountsPage <:::> componentWillReceiveProps <<< ~~~~~~~~~~~~~~~~', newProps);
-        console.log(newProps.breadcrumb);
-        if( newProps.breadcrumb !== this.props.breadcrumb ){
+        console.log('~~~~~~~~~~~~~~~~ >>> AccountsDashboardPage <:::> componentWillReceiveProps <<< ~~~~~~~~~~~~~~~~', newProps);
+        console.log(newProps.accounts);
+        if( newProps.accounts !== this.props.accounts ){
             console.log('~~~~~~~~~~~~~~~~~ >>> Update State <<< ~~~~~~~~~~~~~~~~~');
-            this.setState({ breadcrumb: newProps.breadcrumb });
-            console.log(this.state.breadcrumb);
+            this.setState({ accounts: newProps.accounts });
+            console.log(this.state.accounts);
         }
     }
     
     componentDidMount(){
-        console.log('~~~~~~~~~~~~~~~~ >>> AccountsPage <:::> componentDidMount <<< ~~~~~~~~~~~~~~~~');
-        this.props.fetchAccountsStateBreadcrumbDetails();
+        console.log('~~~~~~~~~~~~~~~~ >>> AccountsDashboardPage <:::> componentDidMount <<< ~~~~~~~~~~~~~~~~');
+        let self = this;
         $(document).ready(function(){
             M.FormSelect.init($('#codesSelectTag'));
-            M.Modal.init($('.modal'));
+            
+            self.props.getAllAccountsByAppUserId();
         });
     }
     
     render(){
         return(
             <div className="container-o" id="accountsPageId">
-                <Breadcrumb params={this.state.breadcrumb} />
                 <div className="row">
                     <div className="col s12 m12">
                         <div className="d--flex--column">
                             <div className="pull--flex--right">
-                                <button data-target="modal1"  class="btn modal-trigger waves-effect waves-light btn-small"><i class="material-icons left">add_to_queue</i>Add</button>
-                                <a class="waves-effect waves-light btn-small"><i class="material-icons left">edit</i>Edit</a>
+                                <a href="#/ownaccount/home/accounts/add"  class="btn waves-effect waves-light btn-small">
+                                    <i class="material-icons left">add_to_queue</i>Add New Account
+                                </a>
                             </div>
                             <div className="card responsive-table">
                                 <table className="highlight striped">
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Alias Name</th>
                                             <th>Bank Name</th>
                                             <th>Account Holder Name</th>
                                             <th>Account Number</th>
                                             <th>Type</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                        {
+                                            this.state.accounts.map((item, index)=>{
+                                                return <tr>
+                                                            <td>{index}</td>
+                                                            <td>{item.aliasName}</td>
+                                                            <td>{item.bankName}</td>
+                                                            <td>{item.accountHolderName}</td>
+                                                            <td>{item.accountNumber}</td>
+                                                            <td>{item.accountType}</td>
+                                                            <td>
+                                                                <i class="material-icons">clear</i>
+                                                            </td>
+                                                        </tr>
+                                            })
+                                        }
                                     </tbody>
                                 </table>
                             </div>
@@ -86,4 +98,4 @@ class AccountsPage extends React.Component{
     
 }
 
-export default AccountsPage;
+export default AccountsDashboardPage;

@@ -11,10 +11,27 @@
         flex-direction:column;
     }
     
+    .d--flex--row{
+        display:flex;
+        flex-direction:row;
+    }
+    
+    .justify--content--between{
+        justify-content:space-between;
+    }
+    
     .pull--flex--right{
         display:flex;
         flex-direction:row;
         justify-content:flex-end;
         
+    }
+    
+    .mr-1{
+        margin-right:1rem;
+    }
+    
+    .ml-1{
+       margin-left:1rem; 
     }
 }

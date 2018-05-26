@@ -32,7 +32,7 @@ class OwnAccountRouter extends React.Component{
           <div className="col s12 m10">
             <Switch>
               <Route path="/ownaccount/home/budget" exact component={BudgetLink} />
-              <Route path="/ownaccount/home/accounts" exact component={AccountsLink} />
+              <Route path="/ownaccount/home/accounts/**" exact component={AccountsLink} />
             </Switch>
           </div>
         </div>

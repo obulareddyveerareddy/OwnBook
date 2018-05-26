@@ -1,63 +1,56 @@
-import Sequelize from 'sequelize';
-import casual from 'casual';
-import _ from 'lodash';
-
-let db;
-if (process.env.DATABASE_URL) {
-    console.log('-------------- process.env.DATABASE_URL -----------');
-    console.log(process.env.DATABASE_URL);
-    var match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
-    console.log(match);
-    db = new Sequelize(match[5], match[1], match[2], {
-        dialect:  'postgres',
-        protocol: 'postgres',
-        port:     match[4],
-        host:     match[3],
-        logging: false,
-        dialectOptions: {
-            ssl: true
-        }
-    });
-    if(db){
-      console.log('--------------- Connection established succesfully ---------------');
-    }else{
-      console.log('--------------- Connection failed  ---------------');
-    }
-    
-  } else {
-    db = new Sequelize('ownaccount', 'ownbook', 'veera@168', {
-      host:'localhost',
-      dialect: 'mysql'
-    })
-  }
+import Sequelize  from 'sequelize';
+import sequelizer from './sequelizer';
   
-const AppUserModel = db.define('app_user', {
+const CodeModel = sequelizer.define('code', {
+  codeId:{
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
+  name:{ type: Sequelize.STRING },
+  description: { type: Sequelize.STRING }
+});
+
+const CodeValuesModel = sequelizer.define('code_values', {
+  codeValueId:{
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
+  name:{ type: Sequelize.STRING },
+  description: { type: Sequelize.STRING },
+  codeId:{type: Sequelize.INTEGER}
+});
+
+const AppUserModel = sequelizer.define('app_user', {
   displayName:{ type: Sequelize.STRING },
   email: { type: Sequelize.STRING },
   googleRefId:{ type: Sequelize.STRING },
 });
 
-const AccountsModel = db.define('accounts', {
+const AccountsModel = sequelizer.define('accounts', {
   bankName:{ type: Sequelize.STRING },
   accountHolderName:{ type: Sequelize.STRING },
   accountNumber:{ type: Sequelize.STRING },
   aliasName:{ type: Sequelize.STRING },
-  accountType:{ type: Sequelize.STRING },
+  accountType:{ type: Sequelize.INTEGER },
   appUserId:{ type: Sequelize.INTEGER },
 });
 
-const CardDetailsModel = db.define('card_details', {
+const CardDetailsModel = sequelizer.define('card_details', {
   accountId:{type: Sequelize.INTEGER},
-  detailEntity:{ type: Sequelize.STRING },
-  detailValue:{ type: Sequelize.STRING },
+  key:{ type: Sequelize.STRING },
+  value:{ type: Sequelize.STRING },
 })
 
-AppUserModel.hasMany(AccountsModel);
-AccountsModel.hasMany(CardDetailsModel);
-db.sync();
+//AppUserModel.hasMany(sequelizer.models.accounts);
+//AccountsModel.hasMany(sequelizer.models.card_details);
+//CodeValuesModel.hasMany(sequelizer.models.code);
+//CodeValuesModel.belongsTo(CodeModel, {foreignKey: 'fk_codeId'});
+//CardDetailsModel.hasMany(sequelizer.models.code_values);
+sequelizer.sync();
 
-const AppUser     = db.models.app_user;
-const Accounts    = db.models.accounts;
-const CardDetails = db.models.card_details;
-
-export { AppUser, Accounts, CardDetails };
+const AppUser     = sequelizer.models.app_user;
+const Accounts    = sequelizer.models.accounts;
+const CardDetails = sequelizer.models.card_details;
+const Code        = sequelizer.models.code;
+const CodeValues  = sequelizer.models.code_values;
+export { Code, CodeValues, AppUser, Accounts, CardDetails };
