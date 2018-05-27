@@ -26,3 +26,16 @@ export function* getAllAccountsByAppUserIdSaga(){
         yield put({type: 'ERROR_FETCH_ACCOUNT_INFO', error});
     }
 }
+
+
+export function* removeAccountSaga(){
+    try{
+        yield take('REQ_REMOVE_ACCOUNT_INFO');
+        console.log('3) MetadataSaga <::> removeAccount ~~~ ', 3);
+        let response =  yield call(accountsApis.removeAccountApi, 3);
+        console.log('4) MetadataSaga <::> REQ_CODEVALUES_BYCODEIds ~~~ ');
+        yield put({type: 'REQ_FETCH_ACCOUNT_INFO', payload:response});
+    }catch(error){
+        yield put({type: 'ERROR_REMOVE_ACCOUNT_INFO', error});
+    }
+}

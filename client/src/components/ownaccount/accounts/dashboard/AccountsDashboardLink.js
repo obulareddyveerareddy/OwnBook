@@ -21,6 +21,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchAccountsStateBreadcrumbDetails:()=>{
       console.log('~~~~~~~~~~~~~~ >>> mapDispatchToProps(..) @ fetchAccountsStateBreadcrumbDetails <<< ~~~~~~~~~~~~~~');
       dispatch(breadcrumbAction.fetchAccountsStateBreadcrumbDetails());
+    },
+    removeAccount:(accountId)=>{
+      console.log('~~~~~~~~~~~~~~ >>> mapDispatchToProps(..) @ removeAccount <<< ~~~~~~~~~~~~~~',accountId);
+      dispatch(AccountsAction.removeAccountAction(accountId));
     }
   }
 }

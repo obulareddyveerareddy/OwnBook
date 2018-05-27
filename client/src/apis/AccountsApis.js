@@ -35,6 +35,7 @@ export async function getAllAccountsByAppUserIdApi(){
         query: gql`
             {
               getAllAccountsByAppUserId(id:2){
+                id
                 bankName
                 accountHolderName
                 accountNumber
@@ -45,4 +46,20 @@ export async function getAllAccountsByAppUserIdApi(){
         `
     });
     return response;
+    
+}
+
+export async function removeAccountApi(accountId){
+    console.log('4) AccountsApis <::> removeAccountApi ~~~ ', accountId);
+    
+    return apolloClientRef.mutation({
+        mutation: gql`
+        mutation removeAccount(accountId:Int){
+            removeAccount(accountId:$accountId){
+                id
+            }
+        }
+        `,
+        variables: {accountId}
+    });
 }

@@ -36,6 +36,7 @@ type Mutation {
             ,aliasName:String
             ,accountType:String
             ,cardDetails:[CardDetailsInput]): Accounts
+  removeAccount(accountId:Int):Boolean
 }
 `;
 

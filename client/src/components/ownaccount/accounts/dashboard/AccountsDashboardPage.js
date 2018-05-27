@@ -12,6 +12,8 @@ class AccountsDashboardPage extends React.Component{
             breadcrumb: this.props.breadcrumb,
             accounts:[]
         }
+        
+        this.removeAccount = this.removeAccount.bind(this); 
     }
     
     
@@ -34,6 +36,12 @@ class AccountsDashboardPage extends React.Component{
             
             self.props.getAllAccountsByAppUserId();
         });
+    }
+    
+    removeAccount(event, item){
+        console.log('~~~~~~~~~~~~ removeAccount ',item);
+        event.preventDefault();
+        this.props.removeAccount(item.id);
     }
     
     render(){
@@ -66,16 +74,16 @@ class AccountsDashboardPage extends React.Component{
                                     </thead>
                                     <tbody>
                                         {
-                                            accounts.map((item)=>{
+                                            accounts.map((item, index)=>{
                                                 return <tr>
-                                                            <td>#</td>
+                                                            <td>{index+1}</td>
                                                             <td>{item.aliasName}</td>
                                                             <td>{item.bankName}</td>
                                                             <td>{item.accountHolderName}</td>
                                                             <td>{item.accountNumber}</td>
                                                             <td>{item.accountType}</td>
                                                             <td>
-                                                                <i class="material-icons">clear</i>
+                                                                <a href="#" onClick={(event)=>{this.removeAccount(event, item)}}><i class="material-icons">clear</i></a>
                                                             </td>
                                                         </tr>
                                             })

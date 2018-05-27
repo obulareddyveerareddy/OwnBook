@@ -49,6 +49,15 @@ const accountsResolver = {
             });
         });
         //return Accounts.build(args).save();
+    },
+    removeAccount:(_, args, context) =>{
+        return new Promise((resolve, reject) => {
+            CardDetails.destroy({where:{accountId:args.accountId}}).then((cardDetailsResponse) => {
+                Accounts.destroy({ where: { id: args.accountId } }).then((response)=>{
+                    resolve(true);
+                });
+            });
+        });
     }
   }
 };
